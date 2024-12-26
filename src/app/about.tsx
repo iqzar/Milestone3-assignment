@@ -35,7 +35,7 @@ export default function About() {
             Traveling has not only transformed my life but has also inspired me to share my experiences with others. Through my blog, I aim to ignite the wanderlust in your heart and provide practical tips and insights to make your own adventures more fulfilling. From hidden gems to world-famous spots, my goal is to guide and inspire.
           </p>
           <p className="text-[14px] md:mt-4 mt-3 leading-6">
-            I believe that travel is more than just a journey; its a way of connecting with people and understanding the world in a new light. Lets embark on this journey together, discovering incredible destinations and unforgettable experiences. Whether you're a seasoned traveler or just starting out, Im here to inspire and help you along the way!
+            I believe that travel is more than just a journey; its a way of connecting with people and understanding the world in a new light. Lets embark on this journey together, discovering incredible destinations and unforgettable experiences. Whether youre a seasoned traveler or just starting out, Im here to inspire and help you along the way!
           </p>
         </div>
       </div>

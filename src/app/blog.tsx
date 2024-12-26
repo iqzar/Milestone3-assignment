@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import fetchBlogs from '../sanity/utils/fetchBlogs'; // Import the fetch function
-
+import Image from 'next/image';
 interface Blog {
   title: string;
   slug: { current: string };
@@ -33,7 +33,7 @@ const Blogs: React.FC = () => {
             key={index}
             className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
           >
-            <img
+            <Image
               src={blog.imageUrl}
               alt={blog.title}
               className="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
