@@ -1,4 +1,4 @@
-import Image from "next/image"
+
 import image1 from './public/b1.jpg'
 import image2 from './public/b3.jpg'
 import image3 from './public/b2.jpg'

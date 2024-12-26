@@ -7,7 +7,7 @@ import Rsection from "./rsection";
 import Footer from "./footer";
 import backgroundImage from './public/background.jpg'
 import banner from './public/banner.jpg'
-import { Fullscreen } from "lucide-react";
+
 export default function Home(){
   return(
     <>
