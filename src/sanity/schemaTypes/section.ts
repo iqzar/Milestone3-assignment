@@ -54,5 +54,12 @@ export const section = defineType({
       description: 'Date and time when the blog post was published',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      description: 'The main content of the blog post',
+      of: [{ type: 'block' }],
+    }),
   ],
 });

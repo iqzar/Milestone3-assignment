@@ -1,0 +1,101 @@
+import Header from "../header";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { client } from '@/sanity/lib/client'; // Import the Sanity client
+import { PortableText } from '@portabletext/react'; // Sanity PortableText component
+
+// Type definition for the blog post
+interface BlogPost {
+  title: string;
+  slug: string;
+  description: string;
+  publishedAt: string;
+  imageUrl: string;
+  content: any[]; // Rich text content
+}
+
+export default function Content() {
+  const router = useRouter();
+  const { slug } = router.query; // Access slug from URL
+  const [post, setPost] = useState<BlogPost | null>(null); // State for storing the blog post data
+  const [loading, setLoading] = useState(true); // Loading state
+
+  useEffect(() => {
+    if (slug) {
+      // Fetch the blog post data based on the slug from the URL
+      const fetchPost = async () => {
+        setLoading(true); // Set loading state
+
+        const postData = await client.fetch(
+          `*[_type == "blog" && slug.current == $slug][0] {
+            title,
+            slug,
+            description,
+            publishedAt,
+            "imageUrl": image.asset->url,
+            content
+          }`,
+          { slug }
+        );
+
+        setPost(postData); // Set the fetched post data
+        setLoading(false); // Set loading state to false after data is fetched
+      };
+
+      fetchPost(); // Call the fetch function when slug is available
+    }
+  }, [slug]); // Run the effect when the slug changes
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading while fetching data
+  }
+
+  if (!post) {
+    return <div>Post not found.</div>; // Show error if post is not found
+  }
+
+  return (
+    <main>
+      <Header />
+      <div className="flex justify-between mt-14 md:ml-20 md:mr-20">
+        <div id="left" className="w-60%">
+          <p className="text-xs text-white bg-green-600 border rounded-full px-1 py-1 w-16">Continent</p>
+          <h1 className="text-3xl mt-4 font-bold mb-2">{post.title}</h1>
+          <div className="flex space-x-2 text-[10px]">
+            <p>Written by</p>
+            <p>|</p>
+            <p>Add a comment</p>
+          </div>
+          <p className="text-md mt-8">{post.description}</p>
+
+          {/* Render the blog content using PortableText */}
+          <div className="content mt-8">
+            <PortableText value={post.content} />
+          </div>
+        </div>
+
+        <div id="right" className="">
+          <div className="w-72 h-auto px-5 py-4">
+            <h2 className="mb-2 text-lg font-semibold">DESTINATIONS</h2>
+            <div className="flex justify-between text-sm mb-1">
+              <p>Africa</p>
+              <p className="border rounded-full px-3 bg-red-500">3</p>
+            </div>
+            <div className="flex justify-between text-sm mb-1">
+              <p>Europe</p>
+              <p className="border rounded-full px-3 bg-green-500">6</p>
+            </div>
+            <div className="flex justify-between text-sm mb-1">
+              <p>Asia</p>
+              <p className="border rounded-full px-3 bg-yellow-300">8</p>
+            </div>
+            <div className="flex justify-between text-sm">
+              <p>North America</p>
+              <p className="border rounded-full px-3 bg-blue-500">6</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
