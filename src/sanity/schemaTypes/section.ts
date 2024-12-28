@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity';
+import { defineType, defineField, defineArrayMember } from 'sanity';
 
 export const section = defineType({
   name: 'blog',
@@ -59,7 +59,12 @@ export const section = defineType({
       title: 'Content',
       type: 'array',
       description: 'The main content of the blog post',
-      of: [{ type: 'block' }],
-    }),
-  ],
-});
+      of: [
+          defineArrayMember({
+        type: 'block'
+    })
+  ]
+})
+
+
+]})

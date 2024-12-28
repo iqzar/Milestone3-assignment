@@ -5,41 +5,56 @@ import { client } from '@/sanity/lib/client'; // Import the Sanity client
 import { PortableText } from '@portabletext/react'; // Sanity PortableText component
 
 // Type definition for the blog post
+import { PortableTextBlock } from '@portabletext/types'; // Import PortableTextBlock type
+
 interface BlogPost {
   title: string;
   slug: string;
   description: string;
   publishedAt: string;
   imageUrl: string;
-  content: any[]; // Rich text content
+  content: PortableTextBlock[]; // Use PortableTextBlock[] for Sanity Portable Text content
 }
+
 
 export default function Content() {
   const router = useRouter();
   const { slug } = router.query; // Access slug from URL
   const [post, setPost] = useState<BlogPost | null>(null); // State for storing the blog post data
   const [loading, setLoading] = useState(true); // Loading state
+  const [error, setError] = useState<string | null>(null); // Error state
 
   useEffect(() => {
     if (slug) {
       // Fetch the blog post data based on the slug from the URL
       const fetchPost = async () => {
         setLoading(true); // Set loading state
+        setError(null); // Reset error state
 
-        const postData = await client.fetch(
-          `*[_type == "blog" && slug.current == $slug][0] {
-            title,
-            slug,
-            description,
-            publishedAt,
-            "imageUrl": image.asset->url,
-            content
-          }`,
-          { slug }
-        );
+        try {
+          const postData = await client.fetch(
+            `*[_type == "blog" && slug.current == $slug][0] {
+              title,
+              slug,
+              description,
+              publishedAt,
+              "imageUrl": image.asset->url,
+              content
+            }`,
+            { slug }
+          );
 
-        setPost(postData); // Set the fetched post data
-        setLoading(false); // Set loading state to false after data is fetched
+          if (!postData) {
+            throw new Error("Post not found. Please check the URL or try again later.");
+          }
+
+          setPost(postData); // Set the fetched post data
+        } catch (err) {
+          console.error("Error fetching post:", err);
+          setError(err instanceof Error ? err.message : "An unexpected error occurred.");
+        } finally {
+          setLoading(false); // Set loading state to false after fetching
+        }
       };
 
       fetchPost(); // Call the fetch function when slug is available
@@ -48,6 +63,10 @@ export default function Content() {
 
   if (loading) {
     return <div>Loading...</div>; // Show loading while fetching data
+  }
+
+  if (error) {
+    return <div className="text-red-600">Error: {error}</div>; // Show error message
   }
 
   if (!post) {
@@ -70,11 +89,15 @@ export default function Content() {
 
           {/* Render the blog content using PortableText */}
           <div className="content mt-8">
-            <PortableText value={post.content} />
+            {post.content && Array.isArray(post.content) ? (
+              <PortableText value={post.content} />
+            ) : (
+              <p>No content available for this post.</p>
+            )}
           </div>
         </div>
 
-        <div id="right" className="">
+        <div id="right">
           <div className="w-72 h-auto px-5 py-4">
             <h2 className="mb-2 text-lg font-semibold">DESTINATIONS</h2>
             <div className="flex justify-between text-sm mb-1">
