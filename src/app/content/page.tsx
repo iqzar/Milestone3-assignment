@@ -1,11 +1,8 @@
-'use client'
 import Header from "../header";
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation'; // Using usePathname instead of useRouter
 import { useEffect, useState } from 'react';
 import { client } from '@/sanity/lib/client'; // Sanity client
 import { PortableText } from '@portabletext/react'; // Sanity PortableText component
-
-// Type definition for the blog post
 import { PortableTextBlock } from '@portabletext/types'; // PortableTextBlock type
 
 interface BlogPost {
@@ -18,8 +15,9 @@ interface BlogPost {
 }
 
 export default function Content() {
-  const router = useRouter();
-  const { slug } = router.query; // Access slug from URL
+  const pathname = usePathname(); // Using usePathname to get the current URL
+  const slug = pathname?.split("/").pop(); // Extract slug from pathname
+  
   const [post, setPost] = useState<BlogPost | null>(null); // State for storing the blog post data
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState<string | null>(null); // Error state
@@ -77,7 +75,7 @@ export default function Content() {
     <main>
       <Header />
       <div className="flex justify-between mt-14 md:ml-20 md:mr-20">
-        <div id="left" className="w-[60%]"> {/* Use w-[60%] for proper width */}
+        <div id="left" className="w-[60%]">
           <p className="text-xs text-white bg-green-600 border rounded-full px-1 py-1 w-16">Continent</p>
           <h1 className="text-3xl mt-4 font-bold mb-2">{post.title}</h1>
           <div className="flex space-x-2 text-[10px]">
@@ -87,7 +85,6 @@ export default function Content() {
           </div>
           <p className="text-md mt-8">{post.description}</p>
 
-          {/* Render the blog content using PortableText */}
           <div className="content mt-8">
             {post.content && Array.isArray(post.content) ? (
               <PortableText value={post.content} />
@@ -97,8 +94,7 @@ export default function Content() {
           </div>
         </div>
 
-        {/* Right section for destinations */}
-        <div id="right" className="w-[30%]"> {/* Ensure proper width */}
+        <div id="right" className="w-[30%]">
           <div className="w-72 h-auto px-5 py-4">
             <h2 className="mb-2 text-lg font-semibold">DESTINATIONS</h2>
             <div className="flex justify-between text-sm mb-1">
