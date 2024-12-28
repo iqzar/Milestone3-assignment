@@ -1,5 +1,5 @@
 import Header from "../header";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { client } from '@/sanity/lib/client'; // Sanity client
 import { PortableText } from '@portabletext/react'; // Sanity PortableText component
