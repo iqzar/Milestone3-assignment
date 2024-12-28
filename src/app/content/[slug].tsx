@@ -1,11 +1,11 @@
 import Header from "../header";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { client } from '@/sanity/lib/client'; // Import the Sanity client
+import { client } from '@/sanity/lib/client'; // Sanity client
 import { PortableText } from '@portabletext/react'; // Sanity PortableText component
 
 // Type definition for the blog post
-import { PortableTextBlock } from '@portabletext/types'; // Import PortableTextBlock type
+import { PortableTextBlock } from '@portabletext/types'; // PortableTextBlock type
 
 interface BlogPost {
   title: string;
@@ -15,7 +15,6 @@ interface BlogPost {
   imageUrl: string;
   content: PortableTextBlock[]; // Use PortableTextBlock[] for Sanity Portable Text content
 }
-
 
 export default function Content() {
   const router = useRouter();
@@ -77,7 +76,7 @@ export default function Content() {
     <main>
       <Header />
       <div className="flex justify-between mt-14 md:ml-20 md:mr-20">
-        <div id="left" className="w-60%">
+        <div id="left" className="w-[60%]"> {/* Use w-[60%] for proper width */}
           <p className="text-xs text-white bg-green-600 border rounded-full px-1 py-1 w-16">Continent</p>
           <h1 className="text-3xl mt-4 font-bold mb-2">{post.title}</h1>
           <div className="flex space-x-2 text-[10px]">
@@ -97,7 +96,8 @@ export default function Content() {
           </div>
         </div>
 
-        <div id="right">
+        {/* Right section for destinations */}
+        <div id="right" className="w-[30%]"> {/* Ensure proper width */}
           <div className="w-72 h-auto px-5 py-4">
             <h2 className="mb-2 text-lg font-semibold">DESTINATIONS</h2>
             <div className="flex justify-between text-sm mb-1">
