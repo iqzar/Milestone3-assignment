@@ -1,3 +1,4 @@
+'use client'
 import Header from "../header";
 import { usePathname } from 'next/navigation'; // Using usePathname instead of useRouter
 import { useEffect, useState } from 'react';
