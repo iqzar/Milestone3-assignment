@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <div
-        className="font-poppins bg-pri relative inset-0 w-full h-screen transition-transform duration-300 scale-100 group-hover:scale-110"
+        className="font-poppins bg-pri relative inset-0 w-full md:h-screen h-[500px] transition-transform duration-300 scale-100 group-hover:scale-110"
         style={{
           backgroundImage: `url(${backgroundImage.src})`,
           backgroundSize: 'cover',

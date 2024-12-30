@@ -34,14 +34,14 @@ const Section: React.FC = () => {
         {blogs.map((blog, index) => (
           <Link key={index} href={`/blog/${blog.slug.current}`} passHref>
             <div
-              className="bg-white shadow-lg rounded overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="bg-white shadow-lg rounded overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer md:ml-0 md:mr-0 ml-10 mr-10"
             >
               <Image
                 src={blog.imageUrl}
                 alt={blog.title}
                 width={150}
                 height={150}
-                className="md:w-full w-200 h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
+                className="md:w-full w-screen h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
               />
               <div className="p-4">
                 <h3 className="text-md font-semibold text-gray-800">{blog.title}</h3>
