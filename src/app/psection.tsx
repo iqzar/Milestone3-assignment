@@ -41,7 +41,7 @@ const Section: React.FC = () => {
                 alt={blog.title}
                 width={150}
                 height={150}
-                className="w-full h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
+                className="md:w-full w-200 h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
               />
               <div className="p-4">
                 <h3 className="text-md font-semibold text-gray-800">{blog.title}</h3>

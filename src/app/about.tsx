@@ -1,5 +1,5 @@
 import Image from "next/image";
-import dp from './public/blogger.jpg';
+import dp from './public/blog.jpg';
 
 export default function About() {
   return (
@@ -14,7 +14,7 @@ export default function About() {
       </div>
 
       {/* About Content */}
-      <div className="ml-10 mr-10 md:ml-20 md:mr-20 flex flex-col md:flex-row md:space-x-16 mt-10">
+      <div className="ml-20 mr-10 md:ml-20 md:mr-20 flex flex-col md:flex-row md:space-x-16 mt-10">
         {/* Responsive Image */}
         <div className="flex-shrink-0">
           <Image
