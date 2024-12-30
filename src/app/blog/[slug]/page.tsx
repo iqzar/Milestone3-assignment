@@ -6,6 +6,7 @@ import { client } from '@/sanity/lib/client'; // Sanity client
 import { PortableText } from '@portabletext/react'; // Sanity PortableText component
 import { PortableTextBlock } from '@portabletext/types'; // PortableTextBlock type
 import Image from "next/image";
+import Link from "next/link";
 
 interface BlogPost {
   title: string;
@@ -13,6 +14,8 @@ interface BlogPost {
   description: string;
   publishedAt: string;
   imageUrl: string;
+  secondaryImage: string,
+  writer: string,
   content: PortableTextBlock[]; // Use PortableTextBlock[] for Sanity Portable Text content
 }
 
@@ -38,6 +41,8 @@ export default function Content() {
               slug,
               description,
               publishedAt,
+              writer, // Fetch writer name
+              "image2Url": secondaryImage.asset->url,
               "imageUrl": image.asset->url,
               content
             }`,
@@ -81,18 +86,18 @@ export default function Content() {
           <p className="text-xs text-white bg-green-600 border rounded-full px-1 py-1 w-16">Continent</p>
           <h1 className="text-3xl mt-4 font-bold mb-2">{post.title}</h1>
           <div className="flex space-x-2 text-[10px]">
-            <p>Written by</p>
+            <p>{post.writer}</p>
             <p>|</p>
-            <p>Add a comment</p>
+            <Link href='#comment'>Add a comment</Link>
           </div>
            <Image
-                         src={post.imageUrl}
+                         src={post.secondaryImage}
                          alt={post.title}
                          width={150}
                          height={150}
-                         className="md:w-full w-screen h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
+                         className="md:w-full w-screen h-[150px] sm:h-[180px] lg:h-[200px] object-cover mt-5 mb-5"
                        />
-          <div className="content mt-8">
+          <div className="content mt-8 text-sm leading-loose">
             {post.content && Array.isArray(post.content) ? (
               <PortableText value={post.content} />
             ) : (
@@ -123,6 +128,7 @@ export default function Content() {
           </div>
         </div>
       </div>
+      <h2 id="comment">Add a comment</h2>
     </main>
   );
 }

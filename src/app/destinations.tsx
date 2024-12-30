@@ -14,7 +14,7 @@ export default function Destinations(){
 
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 md:ml-14 ml-10">
     {/* Card Component 1*/}
-    <div className="relative group w-72 h-96 rounded shadow-md overflow-hidden md:mb-0 mb-5 ml-5">
+    <div className="relative group w-72 h-96 rounded shadow-md overflow-hidden md:mb-0 mb-5 ml-10 md:ml-0">
       {/* Zoomable Image */}
       <div
   className="absolute inset-0 bg-cover bg-center rounded transition-transform duration-300 scale-100 group-hover:scale-110"
@@ -38,7 +38,7 @@ export default function Destinations(){
     </div>
 
     {/* Card Component 2*/}
-    <div className="relative group w-72 h-96 rounded shadow-md overflow-hidden md:mb-0 mb-5 ml-5">
+    <div className="relative group w-72 h-96 rounded shadow-md overflow-hidden md:mb-0 mb-5 ml-10 md:ml-0">
       {/* Zoomable Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-300 scale-100 group-hover:scale-110"
@@ -62,7 +62,7 @@ export default function Destinations(){
     </div>
 
      {/* Card Component 3*/}
-     <div className="relative group w-72 h-96 rounded shadow-md overflow-hidden md:mb-0 mb-5 ml-5">
+     <div className="relative group w-72 h-96 rounded shadow-md overflow-hidden md:mb-0 mb-5 ml-10 md:ml-0">
       {/* Zoomable Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-300 scale-100 group-hover:scale-110"
