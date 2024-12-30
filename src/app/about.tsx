@@ -1,15 +1,16 @@
 import Image from "next/image";
-import dp from './public/blogger.jpg'
+import dp from './public/blogger.jpg';
+
 export default function About() {
   return (
     <main>
       {/* Section Title */}
       <div className="mt-10 md:mt-16 flex justify-center items-center">
-        <div className="border-b-2 border-b-slate-300 w-full mx-8"></div>
-        <h2 className="text-[14px] sm:text-[16px] mx-3 sm:mx-5 leading-none whitespace-nowrap">
+        <div className="border-b-2 border-med w-full mx-8"></div>
+        <h2 className="text-[14px] text-sec font-bold sm:text-[16px] mx-3 sm:mx-5 leading-none whitespace-nowrap">
           ABOUT ME
         </h2>
-        <div className="border-b-2 border-b-slate-300 w-full mx-8"></div>
+        <div className="border-b-2 border-med w-full mx-8"></div>
       </div>
 
       {/* About Content */}

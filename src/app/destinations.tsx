@@ -1,15 +1,15 @@
 
-import image1 from './public/b1.jpg'
-import image2 from './public/b3.jpg'
-import image3 from './public/b2.jpg'
+import image1 from './public/africa.jpg'
+import image2 from './public/food.jpg'
+import image3 from './public/paris.jpg'
 
 export default function Destinations(){
     return(
         <main className="mb-10">
              <div className="mt-10 md:mt-16 flex justify-center items-center">
-  <div className="border-b-2 border-b-slate-300 w-full mx-8"></div>
-  <h2 className="text-[14px] sm:text-[16px] mx-3 sm:mx-5 leading-none whitespace-nowrap">TOP DESTINATIONS</h2>
-  <div className="border-b-2 border-b-slate-300 w-full mx-8"></div>
+  <div className="border-b-2 border-med w-full mx-8"></div>
+  <h2 className="text-[14px] text-sec font-bold sm:text-[16px] mx-3 sm:mx-5 leading-none whitespace-nowrap">TOP DESTINATIONS</h2>
+  <div className="border-b-2 border-med w-full mx-8"></div>
 </div>
 
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10 md:ml-14 ml-10">
@@ -17,7 +17,7 @@ export default function Destinations(){
     <div className="relative group w-72 h-96 rounded-lg shadow-md overflow-hidden md:mb-0 mb-5">
       {/* Zoomable Image */}
       <div
-  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 scale-100 group-hover:scale-110"
+  className="absolute inset-0 bg-cover bg-center rounded transition-transform duration-300 scale-100 group-hover:scale-110"
    style={{
     backgroundImage: `url(${image1.src})`,
     backgroundSize: 'cover',

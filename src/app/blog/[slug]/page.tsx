@@ -1,5 +1,5 @@
 'use client'
-import Header from "../header";
+import Header from "../../header";
 import { usePathname } from 'next/navigation'; // Using usePathname instead of useRouter
 import { useEffect, useState } from 'react';
 import { client } from '@/sanity/lib/client'; // Sanity client

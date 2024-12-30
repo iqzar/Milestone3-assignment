@@ -9,7 +9,13 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontFamily:{
+			poppins: ['Poppins','serif']
+		},
   		colors: {
+			pri : "#f1f7ed",
+			sec : "#243e36",
+			med : "#7ca982",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

@@ -3,8 +3,8 @@ import logo from './public/logoo.png'
 
 export default function Footer(){
     return(
-        <div className="bg-c2 h-auto w-full mt-10 bg-cyan-500">
-        <div className="flex flex-col lg:flex-row lg:space-x-32 pt-6 pb-10 font-custom text-white">
+        <div className="bg-c2 h-auto w-full mt-10 bg-sec">
+        <div className="flex flex-col lg:flex-row lg:space-x-32 pt-6 pb-10 font-custom text-pri">
           <div className="mb-8 lg:mb-0 lg:mt-14 ml-5">
             <Image src={logo} alt="logo" width={80} height={50} />
            <p className="text-[14px] mt-4">
@@ -35,10 +35,10 @@ export default function Footer(){
               </p>
               <div className="items-center mt-3 w-full max-w-xs h-8 pl-3">
                 <input
-                  className="text-xs w-full h-full pl-2 bg-cyan-500 border rounded border-cyan-600"
+                  className="text-xs w-full h-full pl-2 bg-sec border rounded "
                   placeholder="Your email address"
                 />
-                <button className="text-cyan-600 text-xs w-full bg-cyan-400 mt-3 rounded pt-1.5 pb-1.5 pl-2 pr-2" type="button">
+                <button className="text-sec text-xs w-full bg-med mt-3 rounded pt-1.5 pb-1.5 pl-2 pr-2" type="button">
                   SUBMIT
                 </button>
               </div>

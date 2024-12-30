@@ -41,6 +41,30 @@ export const section = defineType({
       ],
     }),
     defineField({
+      name: 'secondaryImage',
+      title: 'Secondary Image',
+      type: 'image',
+      description: 'An additional image for the blog post',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          description: 'Description of the image for accessibility',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'writer',
+      title: 'Writer',
+      type: 'string',
+      description: 'The name of the writer of the blog post',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
@@ -60,11 +84,10 @@ export const section = defineType({
       type: 'array',
       description: 'The main content of the blog post',
       of: [
-          defineArrayMember({
-        type: 'block'
-    })
-  ]
-})
-
-
-]})
+        defineArrayMember({
+          type: 'block',
+        }),
+      ],
+    }),
+  ],
+});

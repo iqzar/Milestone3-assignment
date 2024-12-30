@@ -5,6 +5,7 @@ import fetchBlogs from '../sanity/utils/fetchBlogs'; // Import the fetch functio
 import Image from 'next/image';
 import Link from 'next/link'; // Import Link for navigation
 
+
 interface Blog {
   title: string;
   slug: { current: string };
@@ -26,13 +27,8 @@ const Section: React.FC = () => {
   }, []); // Empty dependency array to fetch data only once when the component mounts
 
   return (
-    <main className="md:ml-10 md:mr-20 md:mt-20 md:mb-20 ml-5 mr-5">
-      {/* Section Title */}
-      <div className="mt-10 md:mt-16 flex justify-center items-center mb-10">
-        <div className="border-b-2 border-b-slate-300 w-full mx-8"></div>
-        <h2 className="text-[14px] sm:text-[16px] mx-3 sm:mx-5 leading-none whitespace-nowrap">EDITORS PICK</h2>
-        <div className="border-b-2 border-b-slate-300 w-full mx-8"></div>
-      </div>
+    <main className="md:ml-10 md:mr-20 md:mt-20 md:mb-10 ml-5 mr-5">
+    
       {/* Blog Cards */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mt-6">
         {blogs.map((blog, index) => (

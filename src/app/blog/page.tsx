@@ -1,20 +1,30 @@
-import Header from "../header"
-import Blogs from "../blog"
-import { Search } from "lucide-react"
+import Header from "../header";
+import Footer from "../footer"; 
+import Section from "../psection";
+import { Search } from "lucide-react";
 
-export default function Blog(){
+export default function BlogList(){
     return(
         <main>
             <Header/>
+            <div className="flex justify-between md:mt-10 ml-10 mr-10">
+        <h2 className="text-3xl font-semibold">
+            Discover Stories
+        </h2>
+        {/* Search input */}
+        <div className="flex items-end border rounded-full w-72 border-black bg-white px-2 py-1">
+          <Search className="text-gray-500 mr-3 cursor-pointer" size={20}  />
+          <input
+            type="text"
+            placeholder="Search..."
+            className="flex-grow outline-none text-gray-700"
+          />
+        </div>
 
-            <div className="flex justify-center gap-10 border-b-2 border-t-2 mt-2 border-gray-100 pt-2 pb-2">
-                <input
-                className="text-sm font-semibold outline-none"
-                placeholder="Search here"
-                />
-                 <Search className="w-4 h-4 mt-1"/>
+    
             </div>
-            <Blogs/>
+            <Section/>
+            <Footer/>
         </main>
     )
 }
