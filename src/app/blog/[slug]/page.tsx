@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { client } from '@/sanity/lib/client'; // Sanity client
 import { PortableText } from '@portabletext/react'; // Sanity PortableText component
 import { PortableTextBlock } from '@portabletext/types'; // PortableTextBlock type
+import Image from "next/image";
 
 interface BlogPost {
   title: string;
@@ -84,8 +85,13 @@ export default function Content() {
             <p>|</p>
             <p>Add a comment</p>
           </div>
-          <p className="text-md mt-8">{post.description}</p>
-
+           <Image
+                         src={post.imageUrl}
+                         alt={post.title}
+                         width={150}
+                         height={150}
+                         className="md:w-full w-screen h-[150px] sm:h-[180px] lg:h-[200px] object-cover"
+                       />
           <div className="content mt-8">
             {post.content && Array.isArray(post.content) ? (
               <PortableText value={post.content} />
