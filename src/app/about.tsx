@@ -28,7 +28,7 @@ export default function About() {
         </div>
 
         {/* Text Content */}
-        <div>
+        <div className="md:mr-0 mr-4">
           <p className="text-[14px] md:text-left text-center md:mt-0 mt-6 leading-6">
             Hi there! Im a travel enthusiast from Pakistan with an insatiable curiosity to explore the wonders of the world. Whether its wandering through vibrant cities, hiking serene mountain trails, or immersing myself in diverse cultures, I find joy in discovering the beauty and uniqueness of every destination.
           </p>

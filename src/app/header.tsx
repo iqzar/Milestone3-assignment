@@ -16,7 +16,7 @@ export default function Header() {
         <Image src={logo} width={80} height={80} alt="logo" />
       </div>
       <ul className="md:block hidden mr-10 pt-2">
-        <li className="space-x-10 font-sans text-xs text-pri font-semibold">
+        <li className="space-x-10 font-sans text-xs text-black font-semibold">
           <Link className="hover:border-b-4 hover:border-med" href={"/about"}>Home</Link>
           <Link className="hover:border-b-4 hover:border-med" href="#skills">About</Link>
           <Link className="hover:border-b-4 hover:border-med" href="/blog">Articles</Link>
