@@ -139,7 +139,7 @@ export default function Content() {
         </div>
 
         <div id="right" className="w-full md:w-[30%]">
-          <div className="w-full md:w-60 h-auto md:pt-10 md:ml-10 ml-5 pl-5 pr-5 pb-5 mt-10 bg-white">
+          <div className="w-full md:w-60 h-auto md:pt-10 md:ml-10 ml-5 md:mr-0 mr-5 pl-5 pr-5 pb-5 mt-10 bg-white">
             <h2 className="mb-2 text-lg font-semibold text-sec">DESTINATIONS</h2>
             <div className="flex justify-between text-sm mb-1 text-sec">
               <p>Africa</p>
@@ -159,7 +159,7 @@ export default function Content() {
             </div>
           </div>
 
-          <div className="w-full md:w-60 h-auto md:pt-5 md:ml-10 ml-5 pl-5 pr-5 pb-2 mt-10 bg-white">
+          <div className="w-full md:w-60 h-auto md:pt-5 md:ml-10 ml-5 md:mr-0 mr-5 pl-5 pr-5 pb-2 mt-10 bg-white">
             <h2 className="mb-6 text-lg font-semibold text-sec">RECENT STORIES</h2>
             <div className="flex space-x-6 mb-5">
               <Image src={'/'} alt="image1" width={30} height={30}/>
