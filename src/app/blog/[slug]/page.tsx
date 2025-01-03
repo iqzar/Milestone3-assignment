@@ -94,7 +94,7 @@ export default function Content() {
             <Link href='#comment' className="text-sec">Add a comment</Link>
           </div>
            <Image
-             src={post.secondaryImage}
+             src={post.imageUrl}
              alt={post.title}
              width={150}
              height={150}
