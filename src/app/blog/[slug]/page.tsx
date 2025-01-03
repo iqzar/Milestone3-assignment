@@ -84,7 +84,7 @@ export default function Content() {
   return (
     <main className="bg-slate-100">
       <Header />
-      <div className="flex md:flex-row flex-col md:flex-wrap justify-between">
+      <div className="flex md:flex-row flex-col md:flex-wrap md:justify-between">
         <div id="left" className="w-full md:w-[70%] pt-14 md:pl-20 md:pr-20 bg-white">
           <p className="text-xs text-white bg-green-600 border rounded-full px-1 py-1 w-16">Continent</p>
           <h1 className="text-3xl mt-4 font-bold mb-2 text-sec">{post.title}</h1>
