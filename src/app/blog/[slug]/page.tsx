@@ -84,7 +84,7 @@ export default function Content() {
   return (
     <main className="bg-slate-100">
       <Header />
-      <div className="flex flex-wrap justify-between">
+      <div className="flex md:flex-row flex-col md:flex-wrap justify-between">
         <div id="left" className="w-full md:w-[70%] pt-14 md:pl-20 md:pr-20 bg-white">
           <p className="text-xs text-white bg-green-600 border rounded-full px-1 py-1 w-16">Continent</p>
           <h1 className="text-3xl mt-4 font-bold mb-2 text-sec">{post.title}</h1>
@@ -109,7 +109,7 @@ export default function Content() {
           </div>
           <h2 id="comment" className="text-sm text-sec font-bold mt-5 mb-5 border-t-2 border-med pt-5">RELATED POSTS</h2>
 
-          <div className="flex flex-wrap justify-between space-x-6 mb-8">
+          <div className="flex flex-wrap justify-between space-x-6 mb-8 md:ml-0 md:mr-0 ml-5 mr-5">
               <Image src={'/'} alt="image1" width={80} height={30}/>
               <div>
                 <h3 className="text-sm mb-2 font-semibold text-sec">Top 10 places to visit in Istanbul</h3>
