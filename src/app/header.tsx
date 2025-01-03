@@ -29,8 +29,8 @@ export default function Header() {
           <ul className="bg-pri ml-5">
             <li className="flex flex-col font-poppins text-sm leading-loose">
               <Link href={'/'}>Home</Link>
-              <Link href='/about'>About</Link>
-              <Link href='#projects'>Projects</Link>
+              <Link href='#about'>About</Link>
+              <Link href='/blog'>Projects</Link>
               <Link href={'/contact'}>Contact</Link>
             </li>
           </ul>

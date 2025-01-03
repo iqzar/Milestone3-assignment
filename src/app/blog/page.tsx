@@ -7,8 +7,8 @@ export default function BlogList(){
     return(
         <main>
             <Header/>
-            <div className="flex justify-between md:mt-10 ml-10 mr-10">
-        <h2 className="text-3xl font-semibold">
+            <div className="flex md:flex-row flex-col justify-between md:mt-10 md:ml-10 ml-12 mr-10">
+        <h2 className="text-3xl font-semibold md:mb-0 mb-2">
             Discover Stories
         </h2>
         {/* Search input */}

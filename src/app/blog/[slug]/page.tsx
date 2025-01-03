@@ -100,7 +100,7 @@ export default function Content() {
              height={150}
              className="md:w-full w-screen h-[150px] sm:h-[180px] lg:h-[200px] object-cover mt-5 mb-5"
            />
-          <div className="content mt-8 text-sm leading-loose text-sec">
+          <div className="content mt-8 text-sm leading-loose text-sec md:ml-0 md:mr-0 ml-5 mr-5">
             {post.content && Array.isArray(post.content) ? (
               <PortableText value={post.content} />
             ) : (
